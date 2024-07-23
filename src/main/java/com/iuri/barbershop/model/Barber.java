@@ -1,7 +1,9 @@
 package com.iuri.barbershop.model;
 
+import com.iuri.barbershop.dto.barber.BarberRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "barber")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Barber {
@@ -23,4 +26,9 @@ public class Barber {
     @OneToMany(mappedBy = "barber")
     private List<Appointment> appointments;
 
+    public static Barber convert(BarberRequest barberRequest){
+        return Barber.builder()
+                .name(barberRequest.getName())
+                .build();
+    }
 }
