@@ -1,6 +1,6 @@
 package com.iuri.barbershop.model;
 
-import com.iuri.barbershop.dto.procedure.procedureRequest;
+import com.iuri.barbershop.dto.procedure.ProcedureRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,7 +33,7 @@ public class Procedure {
         this.id = id;
     }
 
-    public static Procedure convert(procedureRequest procedureRequest){
+    public static Procedure convert(ProcedureRequest procedureRequest){
         return Procedure.builder()
                 .name(procedureRequest.getName())
                 .price(procedureRequest.getPrice())

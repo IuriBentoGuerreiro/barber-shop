@@ -9,15 +9,15 @@ import java.util.List;
 
 @Data
 @Builder
-public class procedureResponse {
+public class ProcedureResponse {
 
     private Integer id;
     private String name;
     private Double price;
     private List<Appointment> appointments;
 
-    public static procedureResponse convert(Procedure procedure){
-        return procedureResponse.builder()
+    public static ProcedureResponse convert(Procedure procedure){
+        return ProcedureResponse.builder()
                 .name(procedure.getName())
                 .price(procedure.getPrice())
                 .appointments(procedure.getAppointments())
