@@ -3,7 +3,7 @@ package com.iuri.barbershop.dto.appointment;
 import com.iuri.barbershop.model.Appointment;
 import com.iuri.barbershop.model.Barber;
 import com.iuri.barbershop.model.Customer;
-import com.iuri.barbershop.model.Service;
+import com.iuri.barbershop.model.Work;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,7 +17,7 @@ public class AppointmentResponse {
     private LocalDateTime appointmentTime;
     private Barber barber;
     private Customer customer;
-    private Service service;
+    private Work service;
 
     public static AppointmentResponse convert(Appointment appointment){
         return AppointmentResponse.builder()

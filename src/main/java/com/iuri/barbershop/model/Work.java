@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "service")
+@Table(name = "work")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Service {
+public class Work {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,12 +29,12 @@ public class Service {
     @OneToMany(mappedBy = "service")
     private List<Appointment> appointments;
 
-    public Service(Integer id){
+    public Work(Integer id){
         this.id = id;
     }
 
-    public static Service convert(ServiceRequest serviceRequest){
-        return Service.builder()
+    public static Work convert(ServiceRequest serviceRequest){
+        return Work.builder()
                 .name(serviceRequest.getName())
                 .price(serviceRequest.getPrice())
                 .build();
