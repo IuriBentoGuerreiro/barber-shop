@@ -32,15 +32,15 @@ public class Appointment {
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "service_id")
-    private Work service;
+    @JoinColumn(name = "procedure_id")
+    private Procedure procedure;
 
     public static Appointment convert(AppointmentRequest appointmentRequest){
         return Appointment.builder()
                 .appointmentTime(appointmentRequest.getAppointmentTime())
                 .barber(new Barber(appointmentRequest.getBarberId()))
                 .customer(new Customer(appointmentRequest.getCustomerId()))
-                .service(new Work(appointmentRequest.getServiceId()))
+                .procedure(new Procedure(appointmentRequest.getServiceId()))
                 .build();
     }
 }

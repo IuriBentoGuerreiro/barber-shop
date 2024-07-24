@@ -10,5 +10,5 @@ public class AppointmentRequest {
     private LocalDateTime appointmentTime;
     private Integer barberId;
     private Integer customerId;
-    private Integer serviceId;
+    private Integer procedureId;
 }

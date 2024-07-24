@@ -1,6 +1,6 @@
 package com.iuri.barbershop.model;
 
-import com.iuri.barbershop.dto.service.ServiceRequest;
+import com.iuri.barbershop.dto.procedure.procedureRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "work")
+@Table(name = "procedure")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Work {
+public class Procedure {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,12 +29,12 @@ public class Work {
     @OneToMany(mappedBy = "service")
     private List<Appointment> appointments;
 
-    public Work(Integer id){
+    public Procedure(Integer id){
         this.id = id;
     }
 
-    public static Work convert(ServiceRequest serviceRequest){
-        return Work.builder()
+    public static Procedure convert(procedureRequest serviceRequest){
+        return Procedure.builder()
                 .name(serviceRequest.getName())
                 .price(serviceRequest.getPrice())
                 .build();
