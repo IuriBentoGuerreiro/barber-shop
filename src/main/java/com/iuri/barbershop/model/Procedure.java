@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "procedure")
+@Table(name = "barbershop_procedure")
 @Data
 @Builder
 @AllArgsConstructor
@@ -26,17 +26,17 @@ public class Procedure {
     @Column(name = "price")
     private Double price;
 
-    @OneToMany(mappedBy = "service")
+    @OneToMany(mappedBy = "procedure")
     private List<Appointment> appointments;
 
     public Procedure(Integer id){
         this.id = id;
     }
 
-    public static Procedure convert(procedureRequest serviceRequest){
+    public static Procedure convert(procedureRequest procedureRequest){
         return Procedure.builder()
-                .name(serviceRequest.getName())
-                .price(serviceRequest.getPrice())
+                .name(procedureRequest.getName())
+                .price(procedureRequest.getPrice())
                 .build();
     }
 }

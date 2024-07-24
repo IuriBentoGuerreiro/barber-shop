@@ -40,7 +40,7 @@ public class Appointment {
                 .appointmentTime(appointmentRequest.getAppointmentTime())
                 .barber(new Barber(appointmentRequest.getBarberId()))
                 .customer(new Customer(appointmentRequest.getCustomerId()))
-                .procedure(new Procedure(appointmentRequest.getServiceId()))
+                .procedure(new Procedure(appointmentRequest.getProcedureId()))
                 .build();
     }
 }

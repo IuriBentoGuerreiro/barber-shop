@@ -16,11 +16,11 @@ public class procedureResponse {
     private Double price;
     private List<Appointment> appointments;
 
-    public static procedureResponse convert(Procedure service){
+    public static procedureResponse convert(Procedure procedure){
         return procedureResponse.builder()
-                .name(service.getName())
-                .price(service.getPrice())
-                .appointments(service.getAppointments())
+                .name(procedure.getName())
+                .price(procedure.getPrice())
+                .appointments(procedure.getAppointments())
                 .build();
     }
 }
