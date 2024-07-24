@@ -1,5 +1,6 @@
 package com.iuri.barbershop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iuri.barbershop.dto.barber.BarberRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,7 @@ public class Barber {
     @Column(name = "name")
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "barber")
     private List<Appointment> appointments;
 

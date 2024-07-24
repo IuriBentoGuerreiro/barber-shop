@@ -1,5 +1,6 @@
 package com.iuri.barbershop.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.iuri.barbershop.dto.appointment.AppointmentRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,14 +26,17 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "barber_id")
+    @JsonBackReference
     private Barber barber;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonBackReference
     private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "procedure_id")
+    @JsonBackReference
     private Procedure procedure;
 
     public static Appointment convert(AppointmentRequest appointmentRequest){

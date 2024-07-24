@@ -14,11 +14,31 @@ import java.util.List;
 @Service
 public class AppointmentService {
 
+    private final AppointmentRepository appointmentRepository;
+    private final BarberService barberService;
+    private final CustomerService customerService;
+    private final ProcedureService procedureService;
+
     @Autowired
-    private AppointmentRepository appointmentRepository;
+    public AppointmentService(AppointmentRepository appointmentRepository,
+                            BarberService barberService,
+                            CustomerService customerService,
+                            ProcedureService procedureService) {
+        this.appointmentRepository = appointmentRepository;
+        this.barberService = barberService;
+        this.customerService = customerService;
+        this.procedureService = procedureService;
+    }
 
     public AppointmentResponse save(AppointmentRequest appointmentRequest){
-        return AppointmentResponse.convert(appointmentRepository.save(Appointment.convert(appointmentRequest)));
+        var appointment = appointmentRepository.save(Appointment.builder()
+                        .appointmentTime(appointmentRequest.getAppointmentTime())
+                        .barber(barberService.findById(appointmentRequest.getBarberId()))
+                        .customer(customerService.findById(appointmentRequest.getCustomerId()))
+                        .procedure(procedureService.findById(appointmentRequest.getProcedureId()))
+                .build());
+
+        return AppointmentResponse.convert(appointmentRepository.save(appointment));
     }
 
     public List<AppointmentResponse> findAll(){

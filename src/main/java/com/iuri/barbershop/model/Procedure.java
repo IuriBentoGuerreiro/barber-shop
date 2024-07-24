@@ -1,5 +1,6 @@
 package com.iuri.barbershop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iuri.barbershop.dto.procedure.ProcedureRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class Procedure {
     @Column(name = "price")
     private Double price;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "procedure")
     private List<Appointment> appointments;
 
