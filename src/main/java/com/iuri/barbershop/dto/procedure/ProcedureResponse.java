@@ -18,6 +18,7 @@ public class ProcedureResponse {
 
     public static ProcedureResponse convert(Procedure procedure){
         return ProcedureResponse.builder()
+                .id(procedure.getId())
                 .name(procedure.getName())
                 .price(procedure.getPrice())
                 .appointments(procedure.getAppointments())

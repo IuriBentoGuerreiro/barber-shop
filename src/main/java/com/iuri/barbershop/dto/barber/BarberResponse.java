@@ -17,6 +17,7 @@ public class BarberResponse {
 
     public static BarberResponse convert(Barber barber){
         return BarberResponse.builder()
+                .id(barber.getId())
                 .name(barber.getName())
                 .appointments(barber.getAppointments())
                 .build();

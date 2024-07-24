@@ -18,6 +18,7 @@ public class CustomerResponse {
 
     public static CustomerResponse convert(Customer customer){
         return CustomerResponse.builder()
+                .id(customer.getId())
                 .name(customer.getName())
                 .phoneNumber(customer.getPhoneNumber())
                 .appointments(customer.getAppointments())

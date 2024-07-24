@@ -21,6 +21,7 @@ public class AppointmentResponse {
 
     public static AppointmentResponse convert(Appointment appointment){
         return AppointmentResponse.builder()
+                .id(appointment.getId())
                 .appointmentTime(appointment.getAppointmentTime())
                 .barber(appointment.getBarber())
                 .customer(appointment.getCustomer())
