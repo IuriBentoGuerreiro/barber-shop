@@ -35,7 +35,7 @@ public class AppointmentService {
                         .appointmentTime(appointmentRequest.getAppointmentTime())
                         .barber(barberService.findById(appointmentRequest.getBarberId()))
                         .customer(customerService.findById(appointmentRequest.getCustomerId()))
-                        .procedure(procedureService.findById(appointmentRequest.getProcedureId()))
+                        .procedure(procedureService.findAllById(appointmentRequest.getProceduresId()))
                 .build());
 
         return AppointmentResponse.convert(appointmentRepository.save(appointment));

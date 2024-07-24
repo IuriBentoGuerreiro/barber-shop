@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "appointment")
@@ -34,17 +35,17 @@ public class Appointment {
     @JsonBackReference
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "procedure_id")
+    @OneToMany(mappedBy = "appointment")
     @JsonBackReference
-    private Procedure procedure;
+    private List<Procedure> procedure;
 
     public static Appointment convert(AppointmentRequest appointmentRequest){
         return Appointment.builder()
                 .appointmentTime(appointmentRequest.getAppointmentTime())
                 .barber(new Barber(appointmentRequest.getBarberId()))
                 .customer(new Customer(appointmentRequest.getCustomerId()))
-                .procedure(new Procedure(appointmentRequest.getProcedureId()))
+                .procedure(appointmentRequest.getProceduresId().stream()
+                        .map(Procedure::new).toList())
                 .build();
     }
 }

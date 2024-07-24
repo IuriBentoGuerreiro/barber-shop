@@ -39,4 +39,8 @@ public class ProcedureService {
     public void delete(Integer id){
         procedureRepository.deleteById(id);
     }
+
+    public List<Procedure> findAllById(List<Integer> id){
+        return procedureRepository.findAllById(id);
+    }
 }

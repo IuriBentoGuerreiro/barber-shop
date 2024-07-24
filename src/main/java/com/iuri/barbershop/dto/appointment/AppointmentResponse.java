@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -17,7 +18,7 @@ public class AppointmentResponse {
     private LocalDateTime appointmentTime;
     private Barber barber;
     private Customer customer;
-    private Procedure procedure;
+    private List<Procedure> procedure;
 
     public static AppointmentResponse convert(Appointment appointment){
         return AppointmentResponse.builder()

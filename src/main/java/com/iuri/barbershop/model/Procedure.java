@@ -28,8 +28,9 @@ public class Procedure {
     private Double price;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "procedure")
-    private List<Appointment> appointments;
+    @ManyToOne
+    @JoinColumn(name = "procedure_id")
+    private Appointment appointment;
 
     public Procedure(Integer id){
         this.id = id;

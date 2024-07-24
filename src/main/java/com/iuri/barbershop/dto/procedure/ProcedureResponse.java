@@ -14,14 +14,14 @@ public class ProcedureResponse {
     private Integer id;
     private String name;
     private Double price;
-    private List<Appointment> appointments;
+    private Appointment appointment;
 
     public static ProcedureResponse convert(Procedure procedure){
         return ProcedureResponse.builder()
                 .id(procedure.getId())
                 .name(procedure.getName())
                 .price(procedure.getPrice())
-                .appointments(procedure.getAppointments())
+                .appointment(procedure.getAppointment())
                 .build();
     }
 }
