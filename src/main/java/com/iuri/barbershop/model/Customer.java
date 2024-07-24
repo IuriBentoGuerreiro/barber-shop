@@ -19,7 +19,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -28,6 +28,10 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer")
     private List<Appointment> appointments;
+
+    public Customer(Integer id){
+        this.id = id;
+    }
 
     public static Customer convert(CustomerRequest customerRequest){
         return Customer.builder()

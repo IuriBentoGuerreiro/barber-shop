@@ -11,6 +11,7 @@ import java.util.List;
 @Builder
 public class BarberResponse {
 
+    private Integer id;
     private String name;
     private List<Appointment> appointments;
 

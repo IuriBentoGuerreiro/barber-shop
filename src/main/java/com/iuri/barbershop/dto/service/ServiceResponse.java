@@ -11,6 +11,7 @@ import java.util.List;
 @Builder
 public class ServiceResponse {
 
+    private Integer id;
     private String name;
     private Double price;
     private List<Appointment> appointments;

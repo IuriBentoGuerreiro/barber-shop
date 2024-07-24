@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 public class AppointmentResponse {
 
+    private Integer id;
     private LocalDateTime appointmentTime;
     private Barber barber;
     private Customer customer;

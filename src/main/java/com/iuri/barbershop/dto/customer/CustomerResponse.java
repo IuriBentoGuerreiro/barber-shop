@@ -11,6 +11,7 @@ import java.util.List;
 @Builder
 public class CustomerResponse {
 
+    private Integer id;
     private String name;
     private String phoneNumber;
     private List<Appointment> appointments;

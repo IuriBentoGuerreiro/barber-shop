@@ -26,6 +26,10 @@ public class Barber {
     @OneToMany(mappedBy = "barber")
     private List<Appointment> appointments;
 
+    public Barber(Integer id){
+        this.id = id;
+    }
+
     public static Barber convert(BarberRequest barberRequest){
         return Barber.builder()
                 .name(barberRequest.getName())

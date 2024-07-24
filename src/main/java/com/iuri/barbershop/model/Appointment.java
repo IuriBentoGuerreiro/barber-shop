@@ -36,6 +36,11 @@ public class Appointment {
     private Service service;
 
     public static Appointment convert(AppointmentRequest appointmentRequest){
-        return Appointment.builder().build();
+        return Appointment.builder()
+                .appointmentTime(appointmentRequest.getAppointmentTime())
+                .barber(new Barber(appointmentRequest.getBarberId()))
+                .customer(new Customer(appointmentRequest.getCustomerId()))
+                .service(new Service(appointmentRequest.getServiceId()))
+                .build();
     }
 }
