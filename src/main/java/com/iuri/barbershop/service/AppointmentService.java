@@ -38,7 +38,7 @@ public class AppointmentService {
                         .procedure(procedureService.findAllById(appointmentRequest.getProceduresId()))
                 .build());
 
-        return AppointmentResponse.convert(appointmentRepository.save(appointment));
+        return AppointmentResponse.convert(appointment);
     }
 
     public List<AppointmentResponse> findAll(){
