@@ -35,16 +35,16 @@ public class Appointment {
     @JsonBackReference
     private Customer customer;
 
-    @OneToMany(mappedBy = "appointment")
+    @ManyToMany
     @JsonBackReference
-    private List<Procedure> procedure;
+    private List<Procedure> procedures;
 
     public static Appointment convert(AppointmentRequest appointmentRequest){
         return Appointment.builder()
                 .appointmentTime(appointmentRequest.getAppointmentTime())
                 .barber(new Barber(appointmentRequest.getBarberId()))
                 .customer(new Customer(appointmentRequest.getCustomerId()))
-                .procedure(appointmentRequest.getProceduresId().stream()
+                .procedures(appointmentRequest.getProceduresId().stream()
                         .map(Procedure::new).toList())
                 .build();
     }

@@ -14,7 +14,7 @@ public class ProcedureResponse {
     private Integer id;
     private String name;
     private Double price;
-    private Appointment appointment;
+    private List<Appointment> appointment;
 
     public static ProcedureResponse convert(Procedure procedure){
         return ProcedureResponse.builder()

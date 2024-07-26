@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "barbershop_procedure")
+@Table(name = "procedures")
 @Data
 @Builder
 @AllArgsConstructor
@@ -27,10 +27,9 @@ public class Procedure {
     @Column(name = "price")
     private Double price;
 
+    @ManyToMany(mappedBy = "procedures")
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "procedure_id")
-    private Appointment appointment;
+    private List<Appointment> appointment;
 
     public Procedure(Integer id){
         this.id = id;

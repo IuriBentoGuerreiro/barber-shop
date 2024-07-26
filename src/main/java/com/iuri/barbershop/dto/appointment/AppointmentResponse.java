@@ -18,7 +18,7 @@ public class AppointmentResponse {
     private LocalDateTime appointmentTime;
     private Barber barber;
     private Customer customer;
-    private List<Procedure> procedure;
+    private List<Procedure> procedures;
 
     public static AppointmentResponse convert(Appointment appointment){
         return AppointmentResponse.builder()
@@ -26,7 +26,7 @@ public class AppointmentResponse {
                 .appointmentTime(appointment.getAppointmentTime())
                 .barber(appointment.getBarber())
                 .customer(appointment.getCustomer())
-                .procedure(appointment.getProcedure())
+                .procedures(appointment.getProcedures())
                 .build();
     }
 }
