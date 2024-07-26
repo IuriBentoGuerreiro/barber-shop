@@ -36,7 +36,6 @@ public class Appointment {
     private Customer customer;
 
     @ManyToMany
-    @JsonBackReference
     private List<Procedure> procedures;
 
     public static Appointment convert(AppointmentRequest appointmentRequest){
